@@ -118,38 +118,6 @@ class TestFusee(TestCase):
         moteur = Moteur("Pantera Arctic Cat Triple 800", 4, 2000, 14000.0, 199)
         self.fusee = Fusee("Romano Fafard", capsule, reservoir, moteur)
 
-    def test_fusee_attribut_nom(self):
-        try:
-            self.fusee.nom
-        except AttributeError:
-            self.fail("La fusée devrait avoir un attribut public nommé nom")
-
-    def test_fusee_attribut_capsule(self):
-        try:
-            # Syntaxe de test, ne pas utiliser dans la vraie vie!
-            self.fusee._Fusee__capsule
-        except AttributeError:
-            self.fail("La fusée devrait avoir un attribut privé nommé capsule")
-
-    def test_fusee_attribut_reservoir(self):
-        try:
-            # Syntaxe de test, ne pas utiliser dans la vraie vie!
-            self.fusee._Fusee__reservoir
-        except AttributeError:
-            self.fail("La fusée devrait avoir un attribut privé nommé reservoir")
-
-    def test_fusee_attribut_moteur(self):
-        try:
-            # Syntaxe de test, ne pas utiliser dans la vraie vie!
-            self.fusee._Fusee__moteur
-        except AttributeError:
-            self.fail("La fusée devrait avoir un attribut privé nommé moteur")
-
-    def test_reservoir_masse_rempli(self):
-        reservoir = Reservoir("Pichet", 0.4, 0.5, 20.0, 2)
-        self.assertAlmostEqual(reservoir.masse_rempli, 100.5,
-                               msg="La masse d'un pichet de carburant devrait être 100.5 litres")
-
     def test_fusee_str(self):
         expected = (
             'Fusée:\n'
