@@ -1,4 +1,4 @@
-import json
+0import json
 import os
 import sys
 import tempfile
@@ -117,6 +117,11 @@ class TestFusee(TestCase):
         reservoir = Reservoir("Pichet", 0.4, 0.5, 20.0, 2)
         moteur = Moteur("Pantera Arctic Cat Triple 800", 4, 2000, 14000.0, 199)
         self.fusee = Fusee("Romano Fafard", capsule, reservoir, moteur)
+
+    def test_reservoir_masse_rempli(self):
+        reservoir = Reservoir("Pichet", 0.4, 0.5, 20.0, 2)
+        self.assertAlmostEqual(reservoir.masse_rempli, 100.5,
+                                msg="La masse d'un pichet de carburant devrait être 100.5 litres")
 
     def test_fusee_str(self):
         expected = (
